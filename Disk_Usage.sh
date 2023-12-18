@@ -6,7 +6,7 @@ LOGFILE=$LOGSDIR/$SCRIPT_NAME-$DATE.log
 data_threshold=1
 message=""
 disk_usage=$(df -hT | grep -vE "tmpfs|filesystem")
-while IFS=read line
+while IFS= read line
 do
     usage=$(echo $line | awk '(print $6)' | cut -d % -f1)
     partition=$(echo $line | awk '(print $1)')
