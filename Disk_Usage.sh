@@ -9,10 +9,11 @@ disk_usage=$(df -hT | grep -vE "tmpfs|filesystem")
 while IFS= read line
 do
     usage=$(echo $line | awk '{print $6}' | cut -d % -f1)
-    partition=$(echo $line | awk '{print $})')
+    partition=$(echo $line | awk '{print $1}')
     if [ $usage -ge $data_threshold]
     then
-        message+="High disk usage on $partition"
+        message+="High disk usage on $partition:$usage"
     fi
-    echo "message is: $message"
+    
 done
+echo "message is: $message"
