@@ -19,3 +19,4 @@ done<<<$disk_usage
 
 echo -e "message is: $message"
 echo "$message" | mail -s "High disk usage" prasanthi.ops92@gmail.com
+echo $?
